@@ -3,16 +3,32 @@
     padding: 0;
 }
 
+body {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("../images/john-matychuk-gUK3lA3K7Yo-unsplash.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 100vh;
+}
+
+/* CSS Header */
+
 header {
     display: flex;
     justify-content: space-between;
+    align-items: center;
 }
 
 .div-imgberanda img {
     width: 50px;
 }
 
-
+.div-judulberanda h1 {
+    color: white;
+    font-family: 'Curlz MT';
+    letter-spacing: 3px;
+}
 
 .div-listberanda {
     display: flex;
@@ -25,7 +41,7 @@ header {
 }
 
 .div-listberanda a {
-    color: black;
+    color: white;
     text-decoration: none;
     letter-spacing: 3px;
     font-family: 'Curlz MT';
@@ -34,4 +50,70 @@ header {
 .div-listberanda a:hover {
     color: red;
     transition: 0.5s ease-in-out;
+}
+
+/* CSS Main */
+
+.main-booking {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+    padding: 50px;
+}
+
+.div-ruangan1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 250px;
+    height: 250px;
+    background-color: rgb(53, 53, 85);
+    color: white;
+    text-align: center;
+}
+
+.div-ruangan2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 250px;
+    height: 250px;
+    background-color: rgb(53, 53, 85);
+    color: white;
+    text-align: center;
+}
+
+.div-formbooking fieldset {
+    color: white;
+    background-color: rgb(53, 53, 85);
+    width: 300px;
+    border-radius: 10px;
+}
+
+.div-formbooking h1 {
+    margin-top: 10px;
+    text-align: center;
+}
+
+.div-formbooking form {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    padding: 10px;
+}
+
+.div-ruangan {
+    display: flex;
+    justify-content: space-around;
+}
+
+.button-form {
+    color: white;
+    background-color: chartreuse;
+    width: 30%;
+    margin-left: 35%;
+    border-color: chartreuse;
+    border-radius: 5px;
+    cursor: pointer;
 }
