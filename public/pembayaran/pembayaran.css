@@ -1,0 +1,131 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #555;
+}
+
+/* CSS Header */
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.div-imgpembayaran img {
+  width: 50px;
+}
+
+.div-judulpembayaran h1 {
+  color: white;
+  font-family: "Curlz MT";
+  letter-spacing: 3px;
+}
+
+.div-listpembayaran {
+  display: flex;
+  gap: 50px;
+  margin-right: 10px;
+}
+
+.div-listpembayaran ul {
+  list-style: none;
+}
+
+.div-listpembayaran a {
+  color: white;
+  text-decoration: none;
+  letter-spacing: 3px;
+  font-family: "Curlz MT";
+}
+
+.div-listpembayaran a:hover {
+  color: red;
+  transition: 0.5s ease-in-out;
+}
+
+/* CSS Main */
+
+.main-pembayaran {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+}
+
+.div-pembayaran {
+  border: 1px solid;
+  border-radius: 5px;
+  background-color: white;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.div-judullpembayaran h1 {
+  letter-spacing: 3px;
+  text-align: center;
+  padding: 10px;
+}
+
+.div-jampembayaran {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.div-jampembayaran form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.button-total {
+  padding: 3px;
+  cursor: pointer;
+  background-color: chartreuse;
+  border: 0;
+  border-color: chartreuse;
+  border-radius: 10px;
+}
+
+.div-total {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.div-total .judul-nota {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.div-bank {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+}
+
+.div-bank img {
+  width: 100px;
+}
+
+.div-bank p {
+  padding-top: 10px;
+}
+
+.div-dana {
+  text-align: center;
+}
+
+.div-bri {
+  text-align: center;
+}
+
+.div-bca {
+  text-align: center;
+}

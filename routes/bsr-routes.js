@@ -64,3 +64,27 @@ export async function bookingUser(req, res) {
     res.send("Pembookingan gagal");
   }
 }
+
+export async function postPembayaran(req, res) {
+  const user = jwt.verify(req.cookies.token, process.env.JWT_SECRET_KEY);
+  const idUserBooking = await client.query(
+    `SELECT id_booking FROM booking WHERE id_user = ${user.id_user}`
+  );
+  await client.query(
+    `INSERT INTO pembayaran (jam, pembayaran, id_booking) VALUES
+      (${req.body.jamBooking}, ${req.body.bayar}, ${idUserBooking.rows[0].id_booking})
+    `
+  );
+  res.send("Pembayaran berhasil diinsert");
+}
+
+export async function getPembayaran(_req, res) {
+  const notaPembayaran = await client.query(
+    `SELECT ud.id_user, email, bg.nama_lengkap, pn.jam, pembayaran FROM user_data ud, booking bg, pembayaran pn
+      WHERE ud.id_user = bg.id_user AND pn.id_booking = bg.id_booking
+    `
+  );
+  if(notaPembayaran) {
+    res.send(notaPembayaran.rows[0]);
+  }
+}
