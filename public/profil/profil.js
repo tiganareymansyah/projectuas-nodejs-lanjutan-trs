@@ -87,10 +87,23 @@ document.formUpdate.onsubmit = async (event) => {
             alert(message);
             location.href = "../index.html";
         }
-        else {
-            const message = await response.text();
-            alert(message);
-            location.reload();
-        }
-    })
-}
+    });
+};
+
+document.querySelector(".button-delete").onclick = async (event) => {
+    event.preventDefault();
+    const pilih = confirm("Apakah anda yakin ingin menghapus akun anda ?");
+    if(pilih == true) {
+        await fetch("/api/deleteakun", {
+            method : "DELETE"
+        }).then(async (response) => {
+            if(response.ok) {
+                alert(await response.text());
+                location.href = "../index.html";
+            }
+        });
+    }
+    else {
+        location.reload();
+    }
+};

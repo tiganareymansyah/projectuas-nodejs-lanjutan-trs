@@ -120,5 +120,21 @@ export async function tampilData(req, res) {
 }
 
 export async function updateAkun(req, res) {
-  
+  const user = jwt.verify(req.cookies.token, process.env.JWT_SECRET_KEY);
+  const salt = await bcrypt.genSalt();
+  const hash = await bcrypt.hash(req.body.updatePassword, salt);
+  await client.query(
+    `UPDATE user_data SET email = '${req.body.updateEmail}', password_ = '${hash}' WHERE id_user = ${user.id_user}`
+  );
+  res.clearCookie("token");
+  res.send("Akun berhasil diupdate");
+}
+
+export async function deleteAkun(req, res) {
+  const user = jwt.verify(req.cookies.token, process.env.JWT_SECRET_KEY);
+  await client.query(
+    `DELETE user_data WHERE id_user = ${user.id_user}`
+  );
+  res.clearCookie("token");
+  res.send("Akun berhasil didelete");
 }
