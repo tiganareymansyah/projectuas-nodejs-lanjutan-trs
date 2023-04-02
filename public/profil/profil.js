@@ -4,12 +4,7 @@ document.formChangeProfil.onsubmit = async (event) => {
   changePp.append("foto", document.formChangeProfil.filePp.files[0]);
   await fetch("/api/changepp", {
     method: "PUT",
-    headers: {
-      "Content-type": "application/json",
-    },
-    body: JSON.stringify({
-        changePp
-    })
+    body: changePp,
   }).then(async (response) => {
     if (response.ok) {
       const message = await response.text();
@@ -19,13 +14,11 @@ document.formChangeProfil.onsubmit = async (event) => {
   });
 };
 
-
 fetch("/api/me", {
   method: "GET",
 })
   .then((response) => response.json())
   .then((data) => {
-    console.log(data);
     const tamPro = document.querySelector(".div-tampilprofil");
     const img = document.createElement("img");
     img.src = `/foto/${data.foto_profil}`;
@@ -36,3 +29,68 @@ fetch("/api/me", {
     profilusername.textContent = data.nama_lengkap;
     tamPro.appendChild(profilusername);
   });
+
+fetch("/api/tampildata", {
+  method: "GET",
+})
+  .then((response) => response.json())
+  .then((data) => {
+    console.log(data);
+    const tbody = document.querySelector("tbody");
+    const tr = document.createElement("tr");
+
+    const tdIdUSer = document.createElement("td");
+    tdIdUSer.textContent = data.id_user;
+    tr.appendChild(tdIdUSer);
+
+    const tdUsername = document.createElement("td");
+    tdUsername.textContent = data.username;
+    tr.appendChild(tdUsername);
+
+    const tdEmail = document.createElement("td");
+    tdEmail.textContent = data.email;
+    tr.appendChild(tdEmail);
+
+    const tdTemtanglah = document.createElement("td");
+    tdTemtanglah.textContent = data.temtanglah;
+    tr.appendChild(tdTemtanglah);
+
+    const tdJenkel = document.createElement("td");
+    tdJenkel.textContent = data.jenkel;
+    tr.appendChild(tdJenkel);
+
+    const tdUpdate = document.createElement("td");
+    const buttonUpdate = document.querySelector(".button-update");
+    tdUpdate.appendChild(buttonUpdate);
+    tr.appendChild(tdUpdate);
+
+    tbody.appendChild(tr);
+  });
+
+
+document.formUpdate.onsubmit = async (event) => {
+    event.preventDefault();
+    const updateEmail = document.formUpdate.updateEmail.value;
+    const updatePassword = document.formUpdate.updatePassword.value;
+    await fetch("/api/updateakun", {
+        method: "PUT",
+        headers: {
+            "Content-type" : "application/json"
+        },
+        body: JSON.stringify({
+            updateEmail,
+            updatePassword
+        })
+    }).then(async (response) => {
+        if(response.ok) {
+            const message = await response.text();
+            alert(message);
+            location.href = "../index.html";
+        }
+        else {
+            const message = await response.text();
+            alert(message);
+            location.reload();
+        }
+    })
+}

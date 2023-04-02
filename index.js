@@ -9,6 +9,7 @@ import {
   loginUser,
   me,
   postPembayaran,
+  tampilData,
 } from "./routes/bsr-routes.js";
 
 const app = express();
@@ -26,5 +27,6 @@ app.post("/api/booking", bookingUser);
 app.post("/api/postpembayaran", postPembayaran);
 app.get("/api/getpembayaran", getPembayaran);
 app.put("/api/changepp", upload.single("foto"), changePp);
+app.get("/api/tampildata", tampilData);
 
 app.listen(3000, () => console.log("Server sedang berjalan..."));

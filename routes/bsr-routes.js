@@ -105,9 +105,20 @@ export async function changePp(req, res) {
   const idUserBooking = await client.query(
     `SELECT id_booking FROM booking WHERE id_user = ${user.id_user}`
   );
-  // await client.query(
-  //   `UPDATE booking SET foto_profil = '${req.file.filename}' WHERE id_booking = ${idUserBooking.rows[0].id_booking}`
-  // );
-  // res.send("Foto profil berhasil diubah");
-  console.log(req.file.filename);
+  await client.query(
+    `UPDATE booking SET foto_profil = '${req.file.filename}' WHERE id_booking = ${idUserBooking.rows[0].id_booking}`
+  );
+  res.send("Foto profil berhasil diubah");
+}
+
+export async function tampilData(req, res) {
+  const user = jwt.verify(req.cookies.token, process.env.JWT_SECRET_KEY);
+  const tampilData = await client.query(
+    `SELECT id_user, username, email, temtanglah, jenkel FROM user_data WHERE id_user = ${user.id_user}`
+  );
+  res.send(tampilData.rows[0]);
+}
+
+export async function updateAkun(req, res) {
+  
 }

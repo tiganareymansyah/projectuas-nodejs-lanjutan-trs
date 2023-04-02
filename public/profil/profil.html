@@ -27,15 +27,41 @@
         <div class="div-tampilprofil"></div>
         <div class="div-changeprofil">
             <form name="formChangeProfil">
-                <label>Buat/ubah profil anda</label>
+                <label>Buat atau ubah profil anda</label>
                 <input type="file" name="filePp">
                 <button>Ganti</button>
             </form>
         </div>
+        <table>
+            <tr>
+                <th>Id user</th>
+                <th>Username</th>
+                <th>Email</th>
+                <th>Tempat tanggal lahir</th>
+                <th>Jenis kelamin</th>
+                <th>Update</th>
+            </tr>
+            <tbody></tbody>
+            <button class="button-update"><a href="#link-update">Update</a></button>
+        </table>
+        <div id="div-formupdate" style="padding: 250px;">
+            <div id="link-update" style="padding-bottom: 50px;"></div>
+            <fieldset>
+                <h1>Update akun</h1>
+                <form name="formUpdate">
+                    <input type="text" name="updateEmail" placeholder="Email baru">
+                    <input type="text" name="updatePassword" placeholder="Password baru">
+                    <input type="submit" id="save-akun" value="Save">
+                </form>
+            </fieldset>
+            <div class="div-garis">
+                <p>-------------------- Atau --------------------</p>
+            </div>
+            <div class="div-delete">
+                <button class="delete-akun">Delete Akun</button>
+            </div>
+        </div>
     </main>
-    <footer>
-
-    </footer>
     <script src="./profil.js"></script>
 </body>
 </html>
