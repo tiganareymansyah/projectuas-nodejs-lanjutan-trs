@@ -72,22 +72,28 @@ document.formUpdate.onsubmit = async (event) => {
     event.preventDefault();
     const updateEmail = document.formUpdate.updateEmail.value;
     const updatePassword = document.formUpdate.updatePassword.value;
-    await fetch("/api/updateakun", {
-        method: "PUT",
-        headers: {
-            "Content-type" : "application/json"
-        },
-        body: JSON.stringify({
-            updateEmail,
-            updatePassword
-        })
-    }).then(async (response) => {
-        if(response.ok) {
-            const message = await response.text();
-            alert(message);
-            location.href = "../index.html";
-        }
-    });
+    const pilih = confirm(`Apakah anda ingin mengupdate akun anda dengan email ${updateEmail} dan password ${updatePassword} ?`);
+    if(pilih == true) {
+        await fetch("/api/updateakun", {
+            method: "PUT",
+            headers: {
+                "Content-type" : "application/json"
+            },
+            body: JSON.stringify({
+                updateEmail,
+                updatePassword
+            })
+        }).then(async (response) => {
+            if(response.ok) {
+                const message = await response.text();
+                alert(message);
+                location.href = "../index.html";
+            }
+        });
+    }
+    else {
+        location.reload();
+    }
 };
 
 document.querySelector(".button-delete").onclick = async (event) => {
