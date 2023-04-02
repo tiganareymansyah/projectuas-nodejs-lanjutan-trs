@@ -5,6 +5,17 @@ import jwt from "jsonwebtoken";
 import bcrypt from "bcryptjs";
 import { client } from "../postgresql.js";
 
+export async function me(req, res) {
+  const user = jwt.verify(req.cookies.token, process.env.JWT_SECRET_KEY);
+  const idUserBooking = await client.query(
+    `SELECT id_booking FROM booking WHERE id_user = ${user.id_user}`
+  );
+  const tampilPp = await client.query(
+    `SELECT * FROM booking WHERE id_booking = ${idUserBooking.rows[0].id_booking}`
+  );
+  res.send(tampilPp.rows[0]);
+}
+
 export async function addUser(req, res) {
   const salt = await bcrypt.genSalt();
   const hash = await bcrypt.hash(req.body.password_, salt);
@@ -87,4 +98,16 @@ export async function getPembayaran(_req, res) {
   if(notaPembayaran) {
     res.send(notaPembayaran.rows[0]);
   }
+}
+
+export async function changePp(req, res) {
+  const user = jwt.verify(req.cookies.token, process.env.JWT_SECRET_KEY);
+  const idUserBooking = await client.query(
+    `SELECT id_booking FROM booking WHERE id_user = ${user.id_user}`
+  );
+  // await client.query(
+  //   `UPDATE booking SET foto_profil = '${req.file.filename}' WHERE id_booking = ${idUserBooking.rows[0].id_booking}`
+  // );
+  // res.send("Foto profil berhasil diubah");
+  console.log(req.file.filename);
 }
