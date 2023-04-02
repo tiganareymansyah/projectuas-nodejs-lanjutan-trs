@@ -23,10 +23,21 @@ document.formBooking.onsubmit = async (event) => {
         if(response.ok) {
             const message = await response.text();
             alert(message);
+            location.href = "../pembayaran/pembayaran.html";
         }
         else {
             const message = await response.text();
             alert(message);
+            location.reload();
         }
     });
+};
+
+document.querySelector(".logout").onclick = async () => {
+    await fetch("/api/logout").then(async (response) => {
+        if(response.ok) {
+            alert(await response.text());
+            location.href = "../"
+        }
+    })
 };

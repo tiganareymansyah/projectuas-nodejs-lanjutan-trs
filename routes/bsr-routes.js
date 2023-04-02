@@ -47,30 +47,42 @@ export async function bookingUser(req, res) {
   const dataBooking = await client.query("SELECT * FROM booking");
   let valid = false;
 
-  dataBooking.rows.forEach(async (data) => {
-    if (new Date(req.body.mulaiJam) > data.akhir_jam_berapa) {
-      // console.log(new Date(req.body.mulaiJam).toString(), data.akhir_jam_berapa.toString());
-      valid = true;
-    }
-  });
+  await client.query(
+    `INSERT INTO booking (nama_lengkap, berapa_orang, ruangan, mulai_jam_berapa, akhir_jam_berapa, nomor_hp, id_user) VALUES 
+      ('${req.body.namaLengkap}', 
+        ${req.body.berapaOrang},
+        '${req.body.ruangan}',
+        '${req.body.mulaiJam}',
+        '${req.body.akhirJam}',
+        '${req.body.nomorHp}',
+        ${changeToken.id_user})
+    `
+  );
+  res.send("Pembookingan berhasil");
 
-  if (valid) {
-    await client.query(
-      `INSERT INTO booking (nama_lengkap, berapa_orang, ruangan, mulai_jam_berapa, akhir_jam_berapa, nomor_hp, id_user) VALUES 
-            ('${req.body.namaLengkap}', 
-            ${req.body.berapaOrang},
-            '${req.body.ruangan}',
-            '${req.body.mulaiJam}',
-            '${req.body.akhirJam}',
-            '${req.body.nomorHp}',
-            ${changeToken.id_user})
-        `
-    );
-    res.send("Pembookingan berhasil");
-    location.href = "/";
-  } else {
-    res.send("Pembookingan gagal");
-  }
+  // dataBooking.rows.forEach(async (data) => {
+  //   if (new Date(req.body.mulaiJam) > data.akhir_jam_berapa) {
+  //     // console.log(new Date(req.body.mulaiJam).toString(), data.akhir_jam_berapa.toString());
+  //     valid = true;
+  //   }
+  // });
+
+  // if (valid) {
+  //   await client.query(
+  //     `INSERT INTO booking (nama_lengkap, berapa_orang, ruangan, mulai_jam_berapa, akhir_jam_berapa, nomor_hp, id_user) VALUES
+  //           ('${req.body.namaLengkap}',
+  //           ${req.body.berapaOrang},
+  //           '${req.body.ruangan}',
+  //           '${req.body.mulaiJam}',
+  //           '${req.body.akhirJam}',
+  //           '${req.body.nomorHp}',
+  //           ${changeToken.id_user})
+  //       `
+  //   );
+  //   res.send("Pembookingan berhasil");
+  // } else {
+  //   res.send("Pembookingan gagal");
+  // }
 }
 
 export async function postPembayaran(req, res) {
@@ -92,7 +104,7 @@ export async function getPembayaran(_req, res) {
       WHERE ud.id_user = bg.id_user AND pn.id_booking = bg.id_booking
     `
   );
-  if(notaPembayaran) {
+  if (notaPembayaran) {
     res.send(notaPembayaran.rows[0]);
   }
 }
@@ -135,12 +147,13 @@ export async function deleteAkun(req, res) {
   await client.query(
     `DELETE FROM pembayaran WHERE id_booking = ${idUserBooking.rows[0].id_booking}`
   );
-  await client.query(
-    `DELETE FROM booking WHERE id_user = ${user.id_user}`
-  );
-  await client.query(
-    `DELETE FROM user_data WHERE id_user = ${user.id_user}`
-  );
+  await client.query(`DELETE FROM booking WHERE id_user = ${user.id_user}`);
+  await client.query(`DELETE FROM user_data WHERE id_user = ${user.id_user}`);
   res.clearCookie("token");
   res.send("Akun berhasil didelete");
+}
+
+export async function logoutAkun(req, res) {
+  res.clearCookie("token");
+  res.send("Logout berhasil");
 }

@@ -45,6 +45,7 @@ header {
     text-decoration: none;
     letter-spacing: 3px;
     font-family: 'Curlz MT';
+    cursor: pointer;
 }
 
 .div-listberanda a:hover {

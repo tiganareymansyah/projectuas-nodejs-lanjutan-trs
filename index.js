@@ -8,6 +8,7 @@ import {
   deleteAkun,
   getPembayaran,
   loginUser,
+  logoutAkun,
   me,
   postPembayaran,
   tampilData,
@@ -32,5 +33,6 @@ app.put("/api/changepp", upload.single("foto"), changePp);
 app.get("/api/tampildata", tampilData);
 app.put("/api/updateakun", updateAkun);
 app.delete("/api/deleteakun", deleteAkun);
+app.get("/api/logout", logoutAkun);
 
 app.listen(3000, () => console.log("Server sedang berjalan..."));
