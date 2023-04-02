@@ -26,7 +26,7 @@ fetch("/api/me", {
 
     const profilusername = document.createElement("div");
     profilusername.className = "namaprofil";
-    profilusername.textContent = data.nama_lengkap;
+    profilusername.textContent = data.email;
     tamPro.appendChild(profilusername);
   });
 
@@ -87,7 +87,7 @@ document.formUpdate.onsubmit = async (event) => {
             if(response.ok) {
                 const message = await response.text();
                 alert(message);
-                location.href = "../index.html";
+                location.href = "../";
             }
         });
     }
@@ -105,7 +105,7 @@ document.querySelector(".button-delete").onclick = async (event) => {
         }).then(async (response) => {
             if(response.ok) {
                 alert(await response.text());
-                location.href = "../index.html";
+                location.href = "../";
             }
         });
     }
