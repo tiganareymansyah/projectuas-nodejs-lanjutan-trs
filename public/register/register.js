@@ -42,7 +42,7 @@ document.register.onsubmit = (event) => {
         if(response.ok) {
             const message = await response.text();
             alert(message);
-            location.href = "../login";
+            location.href = "../";
         }
     });
 }

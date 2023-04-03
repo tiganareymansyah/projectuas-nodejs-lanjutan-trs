@@ -1,0 +1,53 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("../images/john-matychuk-gUK3lA3K7Yo-unsplash.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 100vh;
+}
+
+/* CSS Admin Beranda */
+
+.div-adminberanda {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.div-adminberanda h1 {
+  font-family: "Curlz MT";
+  letter-spacing: 3px;
+  color: white;
+}
+
+.div-adminberanda img {
+  width: 50px;
+}
+
+.div-adminberanda ul li a {
+  text-decoration: none;
+  font-size: 15px;
+}
+
+.div-adminberanda ul {
+  list-style: none;
+}
+
+.div-adminberanda a {
+  color: white;
+  padding-right: 50px;
+  font-family: "Curlz MT";
+  letter-spacing: 2px;
+  font-weight: bold;
+}
+
+.div-adminberanda a:hover {
+  color: red;
+  transition: 0.3s ease-in-out;
+}

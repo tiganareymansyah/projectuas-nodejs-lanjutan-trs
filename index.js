@@ -7,6 +7,7 @@ import {
   changePp,
   deleteAkun,
   getPembayaran,
+  loginAdmin,
   loginUser,
   logoutAkun,
   me,
@@ -34,5 +35,6 @@ app.get("/api/tampildata", tampilData);
 app.put("/api/updateakun", updateAkun);
 app.delete("/api/deleteakun", deleteAkun);
 app.get("/api/logout", logoutAkun);
+app.post("/api/loginadmin", loginAdmin);
 
 app.listen(3000, () => console.log("Server sedang berjalan..."));

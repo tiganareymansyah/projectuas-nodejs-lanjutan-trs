@@ -157,3 +157,19 @@ export async function logoutAkun(req, res) {
   res.clearCookie("token");
   res.send("Logout berhasil");
 }
+
+export async function loginAdmin(req, res) {
+  if(req.body.email === "trs@gmail.com") {
+    if(req.body.password_ === "2502") {
+      res.send("Login berhasil");
+    }
+    else {
+      res.status(401);
+      res.send("Password salah");
+    }
+  }
+  else {
+    res.status(401);
+    res.send("Email salah");
+  }
+};
