@@ -3,6 +3,8 @@ import cookieParser from "cookie-parser";
 import multer from "multer";
 import {
   addUser,
+  adminTampilBooking,
+  adminTampilUSerData,
   bookingUser,
   changePp,
   deleteAkun,
@@ -36,5 +38,7 @@ app.put("/api/updateakun", updateAkun);
 app.delete("/api/deleteakun", deleteAkun);
 app.get("/api/logout", logoutAkun);
 app.post("/api/loginadmin", loginAdmin);
+app.get("/api/adminuserdata", adminTampilUSerData);
+app.get("/api/adminbooking", adminTampilBooking);
 
 app.listen(3000, () => console.log("Server sedang berjalan..."));

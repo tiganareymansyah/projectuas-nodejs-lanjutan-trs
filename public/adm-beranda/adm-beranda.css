@@ -51,3 +51,55 @@ body {
   color: red;
   transition: 0.3s ease-in-out;
 }
+
+/* CSS Admin Main*/
+
+.main-admin {
+    margin-top: 70px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.main-admin h2 {
+    color: white;
+    text-align: center;
+}
+
+.div-tableuserdata {
+    display: flex;
+    justify-content: center;
+}
+
+.table-userdata {
+  border-collapse: collapse;
+  margin-top: 10px;
+  background-color: white;
+}
+
+.table-userdata th,
+td {
+  border: 1px solid;
+  padding: 10px;
+  color: black;
+  text-align: center;
+}
+
+.div-tablebooking {
+    display: flex;
+    justify-content: center;
+}
+
+.table-booking {
+  border-collapse: collapse;
+  margin-top: 10px;
+  background-color: white;
+}
+
+.table-booking th,
+td {
+  border: 1px solid;
+  padding: 10px;
+  color: black;
+  text-align: center;
+}

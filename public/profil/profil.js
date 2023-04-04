@@ -35,7 +35,6 @@ fetch("/api/tampildata", {
 })
   .then((response) => response.json())
   .then((data) => {
-    console.log(data);
     const tbody = document.querySelector("tbody");
     const tr = document.createElement("tr");
 

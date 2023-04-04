@@ -173,3 +173,17 @@ export async function loginAdmin(req, res) {
     res.send("Email salah");
   }
 };
+
+export async function adminTampilUSerData(req, res) {
+  const adminTampilUSerData = await client.query(
+    `SELECT id_user, username, email, temtanglah, jenkel FROM user_data`
+  );
+  res.send(adminTampilUSerData.rows[0]);
+}
+
+export async function adminTampilBooking(req, res) {
+  const adminTampilBooking = await client.query(
+    `SELECT id_booking, nama_lengkap, berapa_orang, mulai_jam_berapa, akhir_jam_berapa, nomor_hp, ruangan, id_user FROM booking`
+  );
+  res.send(adminTampilBooking.rows[0]);
+}
