@@ -4,7 +4,7 @@
 }
 
 body {
-  background-color: #555;
+  background-color: #F8ECD1;
 }
 
 /* CSS Header */
@@ -20,7 +20,7 @@ header {
 }
 
 .div-judulpembayaran h1 {
-  color: white;
+  color: black;
   font-family: "Curlz MT";
   letter-spacing: 3px;
 }
@@ -36,7 +36,7 @@ header {
 }
 
 .div-listpembayaran a {
-  color: white;
+  color: black;
   text-decoration: none;
   letter-spacing: 3px;
   font-family: "Curlz MT";

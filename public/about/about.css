@@ -1,0 +1,135 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #f8ecd1;
+}
+
+/* CSS Header */
+
+.div-about {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.div-about h1 {
+  font-family: "Curlz MT";
+  letter-spacing: 3px;
+  color: black;
+}
+
+.div-about img {
+  width: 50px;
+}
+
+.div-about ul li a {
+  text-decoration: none;
+  font-size: 15px;
+}
+
+.div-about ul {
+  list-style: none;
+}
+
+.div-about a {
+  color: black;
+  padding-right: 50px;
+  font-family: "Curlz MT";
+  letter-spacing: 2px;
+  font-weight: bold;
+}
+
+.div-about a:hover {
+  color: red;
+  transition: 0.3s ease-in-out;
+}
+
+/* CSS Main */
+
+.div-mainabout {
+  position: relative;
+  top: 0;
+  margin-top: 20px;
+}
+
+.div-aboutprofil {
+  display: flex;
+  justify-content: center;
+}
+
+.about-profil {
+  position: absolute;
+  width: 15%;
+  height: 180px;
+  border-radius: 50%;
+  transition: opacity 1s ease-in-out;
+}
+
+.about-profil1 {
+  position: absolute;
+  width: 15%;
+  height: 180px;
+  border-radius: 50%;
+  transition: opacity 1s ease-in-out;
+}
+
+.div-aboutprofil .about-profil1:hover {
+  opacity: 0;
+}
+
+.div-aboutnama {
+  text-align: center;
+  margin-top: 200px;
+  text-transform: uppercase;
+}
+
+.div-aboutstudio {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.div-aboutstudio p {
+  width: 1000px;
+  text-align: justify;
+  text-indent: 50px;
+}
+
+.div-judgal article {
+  font-family: "Castellar";
+  font-size: 50px;
+  text-align: center;
+  margin-top: 50px;
+}
+
+.div-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 210px);
+  grid-gap: 0.5em;
+  justify-content: space-evenly;
+  padding: 50px;
+}
+
+.div-fotogallery {
+  width: auto;
+  height: auto;
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.foto {
+    width: 95%;
+    height: 90%;
+    border-radius: 30px;
+    padding: 10px;
+}
+
+@media screen and (max-width: 710px) {
+  .div-gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
