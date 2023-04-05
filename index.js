@@ -20,11 +20,59 @@ import {
 
 const app = express();
 
-app.use(express.static("public"));
-app.use(express.json());
 app.use(cookieParser());
 
-const upload = multer({dest: "public/foto"});
+// app.use((req, res, next) => {
+//   if (
+//     req.path === "/" ||
+//     req.path.endsWith(".css") ||
+//     req.path.endsWith(".jpg") ||
+//     req.path.endsWith(".png") ||
+//     req.path.startsWith("foto")
+//   ) {
+//     next();
+//   } else {
+//     let authorized = false;
+//     if (req.cookies.token) {
+//       try {
+//         jwt.verify(req.cookies.token, process.env.SECRET_KEY);
+//         authorized = true;
+//       } catch (err) {
+//         res.setHeader("Cache-Control", "no-store");
+//         res.clearCookie("token");
+//       }
+//     }
+//     if (authorized) {
+//       if (req.path.startsWith("/")) {
+//         res.redirect("/beranda/beranda.html");
+//       } else {
+//         next();
+//       }
+//     } else {
+//       if (req.path.startsWith("/")) {
+//         next();
+//       } else {
+//         if (req.path.startsWith("/api")) {
+//           res.status(401);
+//           res.send("Anda harus login terlebih dahulu");
+//         } else {
+//           res.redirect("/");
+//         }
+//       }
+//     }
+//   }
+// });
+
+app.use(express.static("public"));
+
+import path from "path";
+import { fileURLToPath } from "url";
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+app.use(express.static(path.join(__dirname, "public")));
+
+app.use(express.json());
+const upload = multer({ dest: "public/foto" });
 
 app.get("/api/me", me);
 app.post("/api/register", addUser);

@@ -47,42 +47,53 @@ export async function bookingUser(req, res) {
   const dataBooking = await client.query("SELECT * FROM booking");
   let valid = false;
 
-  await client.query(
-    `INSERT INTO booking (nama_lengkap, berapa_orang, ruangan, mulai_jam_berapa, akhir_jam_berapa, nomor_hp, id_user) VALUES 
-      ('${req.body.namaLengkap}', 
+  const a = new Date(req.body.mulaiJam).toLocaleString("id-ID",{day: "2-digit", month: "2-digit", year: "2-digit"})
+  const b = new Date(req.body.mulaiJam).toLocaleString("id-ID",{hour: "2-digit", minute: "2-digit"});
+  const y = new Date(req.body.akhirJam).toLocaleString("id-ID",{day: "2-digit", month: "2-digit", year: "2-digit"})
+  const z = new Date(req.body.akhirJam).toLocaleString("id-ID",{hour: "2-digit", minute: "2-digit"});
+
+  // const i = `${a} ${b}`;
+  // const j = `${y} ${z}`;
+  // console.log(new Date(req.body.mulaiJam).toString(), data.akhir_jam_berapa.toString());
+
+
+  // await client.query(
+  //   `INSERT INTO booking (nama_lengkap, berapa_orang, ruangan, mulai_jam_berapa, akhir_jam_berapa, nomor_hp, id_user) VALUES 
+  //     ('${req.body.namaLengkap}', 
+  //       ${req.body.berapaOrang},
+  //       '${req.body.ruangan}',
+  //       '${i}',
+  //       '${j}',
+  //       '${req.body.nomorHp}',
+  //       ${changeToken.id_user})
+  //   `
+  // );
+  // res.send("Pembookingan berhasil");
+
+
+  dataBooking.rows.forEach(async (data) => {
+    if (new Date(req.body.mulaiJam).toString() > data.akhir_jam_berapa.toString()) {
+      // console.log(new Date(req.body.mulaiJam).toString(), data.akhir_jam_berapa.toString());
+      valid = true;
+    }
+  });
+
+  if (valid) {
+    await client.query(
+      `INSERT INTO booking (nama_lengkap, berapa_orang, ruangan, mulai_jam_berapa, akhir_jam_berapa, nomor_hp, id_user) VALUES
+        ('${req.body.namaLengkap}',
         ${req.body.berapaOrang},
         '${req.body.ruangan}',
         '${req.body.mulaiJam}',
         '${req.body.akhirJam}',
         '${req.body.nomorHp}',
         ${changeToken.id_user})
-    `
-  );
-  res.send("Pembookingan berhasil");
-
-  // dataBooking.rows.forEach(async (data) => {
-  //   if (new Date(req.body.mulaiJam) > data.akhir_jam_berapa) {
-  //     // console.log(new Date(req.body.mulaiJam).toString(), data.akhir_jam_berapa.toString());
-  //     valid = true;
-  //   }
-  // });
-
-  // if (valid) {
-  //   await client.query(
-  //     `INSERT INTO booking (nama_lengkap, berapa_orang, ruangan, mulai_jam_berapa, akhir_jam_berapa, nomor_hp, id_user) VALUES
-  //           ('${req.body.namaLengkap}',
-  //           ${req.body.berapaOrang},
-  //           '${req.body.ruangan}',
-  //           '${req.body.mulaiJam}',
-  //           '${req.body.akhirJam}',
-  //           '${req.body.nomorHp}',
-  //           ${changeToken.id_user})
-  //       `
-  //   );
-  //   res.send("Pembookingan berhasil");
-  // } else {
-  //   res.send("Pembookingan gagal");
-  // }
+      `
+    );
+    res.send("Pembookingan berhasil");
+  } else {
+    res.send("Pembookingan gagal");
+  }
 }
 
 export async function postPembayaran(req, res) {
@@ -135,6 +146,7 @@ export async function updateAkun(req, res) {
   await client.query(
     `UPDATE user_data SET email = '${req.body.updateEmail}', password_ = '${hash}' WHERE id_user = ${user.id_user}`
   );
+  res.setHeader("Cache-Control", "no-store");
   res.clearCookie("token");
   res.send("Akun berhasil diupdate");
 }
@@ -149,41 +161,41 @@ export async function deleteAkun(req, res) {
   );
   await client.query(`DELETE FROM booking WHERE id_user = ${user.id_user}`);
   await client.query(`DELETE FROM user_data WHERE id_user = ${user.id_user}`);
+  res.setHeader("Cache-Control", "no-store");
   res.clearCookie("token");
   res.send("Akun berhasil didelete");
 }
 
 export async function logoutAkun(req, res) {
+  res.setHeader("Cache-Control", "no-store");
   res.clearCookie("token");
   res.send("Logout berhasil");
 }
 
 export async function loginAdmin(req, res) {
-  if(req.body.email === "trs@gmail.com") {
-    if(req.body.password_ === "2502") {
+  if (req.body.email === "trs@gmail.com") {
+    if (req.body.password_ === "2502") {
       res.send("Login berhasil");
-    }
-    else {
+    } else {
       res.status(401);
       res.send("Password salah");
     }
-  }
-  else {
+  } else {
     res.status(401);
     res.send("Email salah");
   }
-};
+}
 
 export async function adminTampilUSerData(req, res) {
   const adminTampilUSerData = await client.query(
     `SELECT id_user, username, email, temtanglah, jenkel FROM user_data`
   );
-  res.send(adminTampilUSerData.rows[0]);
+  res.send(adminTampilUSerData.rows);
 }
 
 export async function adminTampilBooking(req, res) {
   const adminTampilBooking = await client.query(
     `SELECT id_booking, nama_lengkap, berapa_orang, mulai_jam_berapa, akhir_jam_berapa, nomor_hp, ruangan, id_user FROM booking`
   );
-  res.send(adminTampilBooking.rows[0]);
+  res.send(adminTampilBooking.rows);
 }

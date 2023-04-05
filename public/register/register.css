@@ -1,89 +1,120 @@
 * {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 }
-  
+
 body {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-      url("../images/matt-botsford-OKLqGsCT8qs-unsplash.jpg");
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    height: 100vh;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("../images/matt-botsford-OKLqGsCT8qs-unsplash.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 100vh;
 }
-  
+
 /* CSS Header */
 
+.div-register {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .div-register h1 {
-    color: white;
-    font-family: "Curlz MT";
-    letter-spacing: 3px;
-    text-align: center;
+  font-family: "Curlz MT";
+  letter-spacing: 3px;
+  color: white;
+}
+
+.div-register img {
+  width: 50px;
+}
+
+.div-register ul li a {
+  text-decoration: none;
+  font-size: 15px;
+}
+
+.div-register ul {
+  list-style: none;
+}
+
+.div-register a {
+  color: white;
+  padding-right: 50px;
+  font-family: "Curlz MT";
+  letter-spacing: 2px;
+  font-weight: bold;
+}
+
+.div-register a:hover {
+  color: red;
+  transition: 0.3s ease-in-out;
 }
 
 /* CSS Main */
 
 .main-register {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    margin-top: 100px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 100px;
 }
 
 .div-form-register fieldset {
-    background-color: white;
-    width: 300px;
-    border: 0;
-    border-color: white;
-    border-radius: 5px;
+  background-color: white;
+  width: 300px;
+  border: 0;
+  border-color: white;
+  border-radius: 5px;
 }
 
 .div-form-register h2 {
-    text-align: center;
-    letter-spacing: 3px;
-    margin-top: 10px;
+  text-align: center;
+  letter-spacing: 3px;
+  margin-top: 10px;
 }
 
 .div-form-register form {
-    margin: 20px;
+  margin: 20px;
 }
 
 .div-form-register form #a {
-    width: 300px;
-    height: 20px;
+  width: 300px;
+  height: 20px;
 }
 
 .div-form-register #div-date {
-    display: flex;
-    justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
 }
 
 .div-form-register #button-daftar {
-    background-color: chartreuse;
-    width: 30%;
-    margin-left: 35%;
-    border-color: chartreuse;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
+  background-color: chartreuse;
+  width: 30%;
+  margin-left: 35%;
+  border-color: chartreuse;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
 #button-daftar a {
-    text-decoration: none;
+  text-decoration: none;
 }
 
 .div-sidejudul-register {
-    color: white;
+  color: white;
 }
-  
+
 .div-sidejudul-register .wt-register {
-    font-family: "Curlz MT";
-    font-size: 100px;
-    text-align: center;
+  font-family: "Curlz MT";
+  font-size: 100px;
+  text-align: center;
 }
-  
+
 .div-sidejudul-register .bsr-register {
-    font-family: "Curlz MT";
-    letter-spacing: 5px;
-    font-size: 20px;
-    text-align: center;
+  font-family: "Curlz MT";
+  letter-spacing: 5px;
+  font-size: 20px;
+  text-align: center;
 }
