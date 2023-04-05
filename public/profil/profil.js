@@ -66,49 +66,48 @@ fetch("/api/tampildata", {
     tbody.appendChild(tr);
   });
 
-
 document.formUpdate.onsubmit = async (event) => {
-    event.preventDefault();
-    const updateEmail = document.formUpdate.updateEmail.value;
-    const updatePassword = document.formUpdate.updatePassword.value;
-    const pilih = confirm(`Apakah anda ingin mengupdate akun anda dengan email ${updateEmail} dan password ${updatePassword} ?`);
-    if(pilih == true) {
-        await fetch("/api/updateakun", {
-            method: "PUT",
-            headers: {
-                "Content-type" : "application/json"
-            },
-            body: JSON.stringify({
-                updateEmail,
-                updatePassword
-            })
-        }).then(async (response) => {
-            if(response.ok) {
-                const message = await response.text();
-                alert(message);
-                location.href = "../";
-            }
-        });
-    }
-    else {
-        location.reload();
-    }
+  event.preventDefault();
+  const updateEmail = document.formUpdate.updateEmail.value;
+  const updatePassword = document.formUpdate.updatePassword.value;
+  const pilih = confirm(
+    `Apakah anda ingin mengupdate akun anda dengan email ${updateEmail} dan password ${updatePassword} ?`
+  );
+  if (pilih == true) {
+    await fetch("/api/updateakun", {
+      method: "PUT",
+      headers: {
+        "Content-type": "application/json",
+      },
+      body: JSON.stringify({
+        updateEmail,
+        updatePassword,
+      }),
+    }).then(async (response) => {
+      if (response.ok) {
+        const message = await response.text();
+        alert(message);
+        location.href = "../";
+      }
+    });
+  } else {
+    location.reload();
+  }
 };
 
 document.querySelector(".button-delete").onclick = async (event) => {
-    event.preventDefault();
-    const pilih = confirm("Apakah anda yakin ingin menghapus akun anda ?");
-    if(pilih == true) {
-        await fetch("/api/deleteakun", {
-            method : "DELETE"
-        }).then(async (response) => {
-            if(response.ok) {
-                alert(await response.text());
-                location.href = "../";
-            }
-        });
-    }
-    else {
-        location.reload();
-    }
+  event.preventDefault();
+  const pilih = confirm("Apakah anda yakin ingin menghapus akun anda ?");
+  if (pilih == true) {
+    await fetch("/api/deleteakun", {
+      method: "DELETE",
+    }).then(async (response) => {
+      if (response.ok) {
+        alert(await response.text());
+        location.href = "../";
+      }
+    });
+  } else {
+    location.reload();
+  }
 };

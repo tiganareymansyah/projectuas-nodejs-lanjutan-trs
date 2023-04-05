@@ -51,37 +51,29 @@ fetch("/api/adminbooking", {
       tdBerapaOrang.textContent = data[a].berapa_orang;
       tr.appendChild(tdBerapaOrang);
 
-      // const tdMulaiJamBerapa = document.createElement("td");
-      // tdMulaiJamBerapa.textContent = new Date(
-      //   data.mulai_jam_berapa
-      // ).toLocaleString("id-ID", {
-      //   day: "2-digit",
-      //   month: "2-digit",
-      //   year: "numeric",
-      //   hour: "2-digit",
-      //   minute: "2-digit",
-      // });
-      // tr.appendChild(tdMulaiJamBerapa);
-
       const tdMulaiJamBerapa = document.createElement("td");
-      tdMulaiJamBerapa.textContent = data[a].mulai_jam_berapa;
+      tdMulaiJamBerapa.textContent = new Date(
+        data[a].mulai_jam_berapa
+      ).toLocaleString("id-ID", {
+        day: "2-digit",
+        month: "2-digit",
+        year: "2-digit",
+        hour: "2-digit",
+        minute: "2-digit",
+      });
       tr.appendChild(tdMulaiJamBerapa);
 
       const tdAkhirJamBerapa = document.createElement("td");
-      tdAkhirJamBerapa.textContent = data[a].akhir_jam_berapa;
+      tdAkhirJamBerapa.textContent = new Date(
+        data[a].akhir_jam_berapa
+      ).toLocaleString("id-ID", {
+        day: "2-digit",
+        month: "2-digit",
+        year: "2-digit",
+        hour: "2-digit",
+        minute: "2-digit",
+      });
       tr.appendChild(tdAkhirJamBerapa);
-
-      // const tdAkhirJamBerapa = document.createElement("td");
-      // tdAkhirJamBerapa.textContent = new Date(
-      //   data.akhir_jam_berapa
-      // ).toLocaleString("id-ID", {
-      //   day: "2-digit",
-      //   month: "2-digit",
-      //   year: "numeric",
-      //   hour: "2-digit",
-      //   minute: "2-digit",
-      // });
-      // tr.appendChild(tdAkhirJamBerapa);
 
       const tdNomorHp = document.createElement("td");
       tdNomorHp.textContent = data[a].nomor_hp;

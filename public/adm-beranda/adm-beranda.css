@@ -55,20 +55,20 @@ body {
 /* CSS Admin Main*/
 
 .main-admin {
-    margin-top: 70px;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
+  margin-top: 70px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
 .main-admin h2 {
-    color: white;
-    text-align: center;
+  color: white;
+  text-align: center;
 }
 
 .div-tableuserdata {
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
 }
 
 .table-userdata {
@@ -86,8 +86,8 @@ td {
 }
 
 .div-tablebooking {
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
 }
 
 .table-booking {

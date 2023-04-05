@@ -1,4 +1,8 @@
+import dotenv from "dotenv";
+dotenv.config();
+
 import express from "express";
+import jwt from "jsonwebtoken";
 import cookieParser from "cookie-parser";
 import multer from "multer";
 import {
@@ -20,59 +24,62 @@ import {
 
 const app = express();
 
+const upload = multer({ dest: "public/foto" });
 app.use(cookieParser());
+app.use(express.json());
 
-// app.use((req, res, next) => {
-//   if (
-//     req.path === "/" ||
-//     req.path.endsWith(".css") ||
-//     req.path.endsWith(".jpg") ||
-//     req.path.endsWith(".png") ||
-//     req.path.startsWith("foto")
-//   ) {
-//     next();
-//   } else {
-//     let authorized = false;
-//     if (req.cookies.token) {
-//       try {
-//         jwt.verify(req.cookies.token, process.env.SECRET_KEY);
-//         authorized = true;
-//       } catch (err) {
-//         res.setHeader("Cache-Control", "no-store");
-//         res.clearCookie("token");
-//       }
-//     }
-//     if (authorized) {
-//       if (req.path.startsWith("/")) {
-//         res.redirect("/beranda/beranda.html");
-//       } else {
-//         next();
-//       }
-//     } else {
-//       if (req.path.startsWith("/")) {
-//         next();
-//       } else {
-//         if (req.path.startsWith("/api")) {
-//           res.status(401);
-//           res.send("Anda harus login terlebih dahulu");
-//         } else {
-//           res.redirect("/");
-//         }
-//       }
-//     }
-//   }
-// });
-
-app.use(express.static("public"));
+app.use((req, res, next) => {
+  if (
+    req.path === "/api/login" ||
+    req.path.includes("register") ||
+    req.path.includes("admin") ||
+    req.path.endsWith(".css") ||
+    req.path.endsWith(".jpg") ||
+    req.path.endsWith(".png") ||
+    req.path.endsWith(".js")
+  ) {
+    next();
+  } else {
+    let authorized = false;
+    if (req.cookies.token) {
+      try {
+        jwt.verify(req.cookies.token, process.env.JWT_SECRET_KEY);
+        authorized = true;
+      } catch (err) {
+        res.setHeader("Cache-Control", "no-store");
+        res.clearCookie("token");
+      }
+    }
+    if (authorized) {
+      if (
+        req.path === "/" ||
+        req.path.includes("register") ||
+        req.path.includes("admin")
+      ) {
+        res.redirect("/beranda/beranda.html");
+      } else {
+        next();
+      }
+    } else {
+      if (req.path === "/") {
+        next();
+      } else {
+        if (req.path.startsWith("/api")) {
+          res.status(401);
+          res.send("Anda harus login terlebih dahulu.");
+        } else {
+          res.redirect("/");
+        }
+      }
+    }
+  }
+});
 
 import path from "path";
 import { fileURLToPath } from "url";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 app.use(express.static(path.join(__dirname, "public")));
-
-app.use(express.json());
-const upload = multer({ dest: "public/foto" });
 
 app.get("/api/me", me);
 app.post("/api/register", addUser);

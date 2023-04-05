@@ -4,7 +4,7 @@
 }
 
 body {
-  background-color: #F8ECD1;
+  background-color: #f8ecd1;
 }
 
 /* CSS Header */
@@ -93,14 +93,14 @@ header {
 }
 
 .div-total {
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
 }
 
 .div-total .judul-nota {
-    text-align: center;
-    margin-bottom: 30px;
+  text-align: center;
+  margin-bottom: 30px;
 }
 
 .div-bank {

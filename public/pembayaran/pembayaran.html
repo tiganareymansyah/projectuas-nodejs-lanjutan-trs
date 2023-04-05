@@ -1,66 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./pembayaran.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./pembayaran.css" />
     <title>www.pembayaran.com</title>
-</head>
-<body>
+  </head>
+  <body>
     <header>
-        <div class="div-imgpembayaran">
-            <img src="../images/8.jpg">
-        </div>
-        <div class="div-judulpembayaran">
-            <h1>TRS Studio</h1>
-        </div>
-        <div class="div-listpembayaran">
-            <ul>
-                <li>
-                    <a href="../beranda/beranda.html"><b>Kembali</b></a>
-                </li>
-            </ul>
-        </div>
+      <div class="div-imgpembayaran">
+        <img src="../images/8.jpg" />
+      </div>
+      <div class="div-judulpembayaran">
+        <h1>TRS Studio</h1>
+      </div>
+      <div class="div-listpembayaran">
+        <ul>
+          <li>
+            <a href="../beranda/beranda.html"><b>Kembali</b></a>
+          </li>
+        </ul>
+      </div>
     </header>
     <main class="main-pembayaran">
-        <div class="div-pembayaran">
-            <div class="div-judullpembayaran">
-                <h1>Pembayaran</h1>
-            </div>
-            <div class="div-jampembayaran">
-                <p>Booking berapa jam ?</p>
-                <form name="formJamBooking">
-                    <select id="jam-booking" name="jamBooking" required>
-                        <script>
-                            for (let a = 1; a <= 24; a++) {
-                                document.write("<option>" + a);
-                                }
-                                </script>
-                    </select>
-                    <input type="submit" class="button-total" value="Click here">
-                </form>
-                <div class="div-total"></div>
-                <div class="div-bank">
-                    <div class="div-dana">
-                        <a href="https://www.dana.id/" target="_blank">
-                            <img src="../images/logo-dana.png">
-                        </a>
-                    </div>
-                    <div class="div-bri">
-                        <a href="https://bri.co.id/" target="_blank">
-                            <img src="../images/logo-bri.png">
-                        </a>
-                    </div>
-                    <div class="div-bca">
-                        <a href="https://www.bca.co.id/" target="_blank">
-                            <img src="../images/logo-bca.png">
-                        </a>
-                    </div>
-                </div>
-            </div>
+      <div class="div-pembayaran">
+        <div class="div-judullpembayaran">
+          <h1>Pembayaran</h1>
         </div>
+        <div class="div-jampembayaran">
+          <p>Booking berapa jam ?</p>
+          <form name="formJamBooking">
+            <select id="jam-booking" name="jamBooking" required>
+              <script>
+                for (let a = 1; a <= 24; a++) {
+                  document.write("<option>" + a);
+                }
+              </script>
+            </select>
+            <input type="submit" class="button-total" value="Click here" />
+          </form>
+          <div class="div-total"></div>
+          <div class="div-bank">
+            <div class="div-dana">
+              <a href="https://www.dana.id/" target="_blank">
+                <img src="../images/logo-dana.png" />
+              </a>
+            </div>
+            <div class="div-bri">
+              <a href="https://bri.co.id/" target="_blank">
+                <img src="../images/logo-bri.png" />
+              </a>
+            </div>
+            <div class="div-bca">
+              <a href="https://www.bca.co.id/" target="_blank">
+                <img src="../images/logo-bca.png" />
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
     </main>
     <script src="./pembayaran.js"></script>
-</body>
+  </body>
 </html>

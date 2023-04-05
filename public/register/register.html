@@ -1,78 +1,108 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./register.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./register.css" />
     <title>www.register.com</title>
-</head>
-<body>
+  </head>
+  <body>
     <header>
-        <div class="div-register">
-            <img src="../images/8.jpg">
-            <h1>TRS Studio</h1>
-            <ul>
-                <li>
-                    <a href="../"><b>Kembali</b></a>
-                </li>
-            </ul>
-        </div>
+      <div class="div-register">
+        <img src="../images/8.jpg" />
+        <h1>TRS Studio</h1>
+        <ul>
+          <li>
+            <a href="../"><b>Kembali</b></a>
+          </li>
+        </ul>
+      </div>
     </header>
     <main class="main-register">
-        <div class="div-form-register">
-            <fieldset>
-                <h2>Register</h2>
-                <form name="register">
-                    <input type="text" name="username" id="a" placeholder="Username" required autofocus><br><br>
-                    <input type="text" name="email" id="a" placeholder="Email" required><br><br>
-                    <input type="text" name="password_" id="a" placeholder="Password" required><br><br>
-                    <label>Tanggal lahir :</label><br><br>
-                    <div id="div-date">
-                        <select id="tanggal" name="tanggal" required>
-                            <script>
-                                for (let a = 1; a <= 31; a++) {
-                                    document.write("<option>" + a);
-                                }
-                            </script>
-                        </select>
-                        <select id="bulan" name="bulan" required>
-                            <script>
-                                const date = new Date();
-                                for (let a = 0; a < 12; a++) {
-                                    date.setMonth(a);
-                                    document.write(
-                                        `<option value=${a + 1}>` +
-                                        date.toLocaleDateString("id-ID", { month: "long" })
-                                    );
-                                }
-                            </script>
-                        </select>
-                        <select id="tahun" name="tahun" required>
-                            <script>
-                                for (let z = 1945; z <= 2022; z++) {
-                                    document.write("<option>" + z);
-                                }
-                            </script>
-                        </select>
-                    </div><br>
-                    <label>Jenis kelamin :</label><br>
-                    <input type="radio" id="pria" name="jenkel" value="Laki-laki" required>
-                    <label>Laki-laki</label><br>
-                    <input type="radio" id="wanita" name="jenkel" value="Perempuan" required>
-                    <label>Perempuan</label><br><br>
-                    <button id="button-daftar">Daftar</button>
-                </form>
-            </fieldset>
-        </div>
-        <div class="div-sidejudul-register">
-            <p class="wt-register">Welcome To</p>
-            <p class="bsr-register"><span class="content-gerak"></span></p>
-          </div>
+      <div class="div-form-register">
+        <fieldset>
+          <h2>Register</h2>
+          <form name="register">
+            <input
+              type="text"
+              name="username"
+              id="a"
+              placeholder="Username"
+              required
+              autofocus
+            /><br /><br />
+            <input
+              type="text"
+              name="email"
+              id="a"
+              placeholder="Email"
+              required
+            /><br /><br />
+            <input
+              type="text"
+              name="password_"
+              id="a"
+              placeholder="Password"
+              required
+            /><br /><br />
+            <label>Tanggal lahir :</label><br /><br />
+            <div id="div-date">
+              <select id="tanggal" name="tanggal" required>
+                <script>
+                  for (let a = 1; a <= 31; a++) {
+                    document.write("<option>" + a);
+                  }
+                </script>
+              </select>
+              <select id="bulan" name="bulan" required>
+                <script>
+                  const date = new Date();
+                  for (let a = 0; a < 12; a++) {
+                    date.setMonth(a);
+                    document.write(
+                      `<option value=${a + 1}>` +
+                        date.toLocaleDateString("id-ID", { month: "long" })
+                    );
+                  }
+                </script>
+              </select>
+              <select id="tahun" name="tahun" required>
+                <script>
+                  for (let z = 1945; z <= 2022; z++) {
+                    document.write("<option>" + z);
+                  }
+                </script>
+              </select>
+            </div>
+            <br />
+            <label>Jenis kelamin :</label><br />
+            <input
+              type="radio"
+              id="pria"
+              name="jenkel"
+              value="Laki-laki"
+              required
+            />
+            <label>Laki-laki</label><br />
+            <input
+              type="radio"
+              id="wanita"
+              name="jenkel"
+              value="Perempuan"
+              required
+            />
+            <label>Perempuan</label><br /><br />
+            <button id="button-daftar">Daftar</button>
+          </form>
+        </fieldset>
+      </div>
+      <div class="div-sidejudul-register">
+        <p class="wt-register">Welcome To</p>
+        <p class="bsr-register"><span class="content-gerak"></span></p>
+      </div>
     </main>
-    <footer>
-
-    </footer>
+    <footer></footer>
     <script src="./register.js"></script>
-</body>
+  </body>
 </html>

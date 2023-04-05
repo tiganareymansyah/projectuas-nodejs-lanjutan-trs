@@ -1,121 +1,121 @@
 * {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 }
 
 body {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
     url("../images/john-matychuk-gUK3lA3K7Yo-unsplash.jpg");
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    height: 100vh;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 100vh;
 }
 
 /* CSS Header */
 
 header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .div-imgberanda img {
-    width: 50px;
+  width: 50px;
 }
 
 .div-judulberanda h1 {
-    color: white;
-    font-family: 'Curlz MT';
-    letter-spacing: 3px;
+  color: white;
+  font-family: "Curlz MT";
+  letter-spacing: 3px;
 }
 
 .div-listberanda {
-    display: flex;
-    gap: 50px;
-    margin-right: 10px;
+  display: flex;
+  gap: 50px;
+  margin-right: 10px;
 }
 
 .div-listberanda ul {
-    list-style: none;
+  list-style: none;
 }
 
 .div-listberanda a {
-    color: white;
-    text-decoration: none;
-    letter-spacing: 3px;
-    font-family: 'Curlz MT';
-    cursor: pointer;
+  color: white;
+  text-decoration: none;
+  letter-spacing: 3px;
+  font-family: "Curlz MT";
+  cursor: pointer;
 }
 
 .div-listberanda a:hover {
-    color: red;
-    transition: 0.5s ease-in-out;
+  color: red;
+  transition: 0.5s ease-in-out;
 }
 
 /* CSS Main */
 
 .main-booking {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 50px;
-    padding: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+  padding: 50px;
 }
 
 .div-ruangan1 {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 250px;
-    height: 250px;
-    background-color: rgb(53, 53, 85);
-    color: white;
-    text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 250px;
+  height: 250px;
+  background-color: rgb(53, 53, 85);
+  color: white;
+  text-align: center;
 }
 
 .div-ruangan2 {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 250px;
-    height: 250px;
-    background-color: rgb(53, 53, 85);
-    color: white;
-    text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 250px;
+  height: 250px;
+  background-color: rgb(53, 53, 85);
+  color: white;
+  text-align: center;
 }
 
 .div-formbooking fieldset {
-    color: white;
-    background-color: rgb(53, 53, 85);
-    width: 300px;
-    border-radius: 10px;
+  color: white;
+  background-color: rgb(53, 53, 85);
+  width: 300px;
+  border-radius: 10px;
 }
 
 .div-formbooking h1 {
-    margin-top: 10px;
-    text-align: center;
+  margin-top: 10px;
+  text-align: center;
 }
 
 .div-formbooking form {
-    margin-top: 10px;
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-    padding: 10px;
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding: 10px;
 }
 
 .div-ruangan {
-    display: flex;
-    justify-content: space-around;
+  display: flex;
+  justify-content: space-around;
 }
 
 .button-form {
-    color: white;
-    background-color: chartreuse;
-    width: 30%;
-    margin-left: 35%;
-    border-color: chartreuse;
-    border-radius: 5px;
-    cursor: pointer;
+  color: white;
+  background-color: chartreuse;
+  width: 30%;
+  margin-left: 35%;
+  border-color: chartreuse;
+  border-radius: 5px;
+  cursor: pointer;
 }

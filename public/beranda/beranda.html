@@ -1,78 +1,96 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./beranda.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./beranda.css" />
     <title>www.beranda.com</title>
-</head>
-<body>
+  </head>
+  <body>
     <header>
-        <div class="div-imgberanda">
-            <img src="../images/8.jpg">
-        </div>
-        <div class="div-judulberanda">
-            <h1>TRS Studio</h1>
-        </div>
-        <div class="div-listberanda">
-            <ul>
-                <li>
-                    <a href="../profil/profil.html"><b>Profil</b></a>
-                </li>
-            </ul>
-            <ul>
-                <li>
-                    <a href="../pembayaran/pembayaran.html"><b>Pembayaran</b></a>
-                </li>
-            </ul>
-            <ul>
-                <li>
-                    <a href="../about/about.html"><b>About</b></a>
-                </li>
-            </ul>
-            <ul>
-                <li>
-                    <a class="logout"><b>Logout</b></a>
-                </li>
-            </ul>
-        </div>
+      <div class="div-imgberanda">
+        <img src="../images/8.jpg" />
+      </div>
+      <div class="div-judulberanda">
+        <h1>TRS Studio</h1>
+      </div>
+      <div class="div-listberanda">
+        <ul>
+          <li>
+            <a href="../profil/profil.html"><b>Profil</b></a>
+          </li>
+        </ul>
+        <ul>
+          <li>
+            <a href="../about/about.html"><b>About</b></a>
+          </li>
+        </ul>
+        <ul>
+          <li>
+            <a class="logout"><b>Logout</b></a>
+          </li>
+        </ul>
+      </div>
     </header>
     <main class="main-booking">
-        <div class="div-ruangan1">Ruangan 1</div>
-        <div class="div-ruangan2">Ruangan 2</div>
-        <div class="div-formbooking">
-            <fieldset>
-                <h1>Formulir</h1>
-                <form name="formBooking">
-                    <label>Nama lengkap :</label>
-                    <input type="text" name="namaLengkap" id="namaLengkap" placeholder="Nama Lengkap">
-                    <label>Berapa orang ?</label>
-                    <select id="berapaOrang" name="berapaOrang" required>
-                        <script>
-                        for (let a = 1; a <= 10; a++) {
-                            document.write("<option>" + a);
-                        }
-                        </script>
-                    </select>
-                    <label>Pilih ruangan :</label>
-                        <div class="div-ruangan">
-                            <input type="radio" id="ruangan1" name="ruangan" value="Ruangan 1" required>
-                            <label>Ruangan 1</label>
-                            <input type="radio" id="ruangan2" name="ruangan" value="Ruangan 2" required>
-                            <label>Ruangan 2</label>
-                        </div>
-                        <label>Mulai jam berapa ?</label>
-                        <input type="datetime-local" name="mulaiJam">
-                        <label>Akhir jam berapa ?</label>
-                        <input type="datetime-local" name="akhirJam">
-                        <label>Nomor Hp :</label>
-                        <input type="text" id="nomorHp" name="nomorHp" placeholder="Nomor Hp" required><br>
-                        <button class="button-form">Send</button>
-                </form>
-            </fieldset>
-        </div>
+      <div class="div-ruangan1">Ruangan 1</div>
+      <div class="div-ruangan2">Ruangan 2</div>
+      <div class="div-formbooking">
+        <fieldset>
+          <h1>Formulir</h1>
+          <form name="formBooking">
+            <label>Nama lengkap :</label>
+            <input
+              type="text"
+              name="namaLengkap"
+              id="namaLengkap"
+              placeholder="Nama Lengkap"
+            />
+            <label>Berapa orang ?</label>
+            <select id="berapaOrang" name="berapaOrang" required>
+              <script>
+                for (let a = 1; a <= 10; a++) {
+                  document.write("<option>" + a);
+                }
+              </script>
+            </select>
+            <label>Pilih ruangan :</label>
+            <div class="div-ruangan">
+              <input
+                type="radio"
+                id="ruangan1"
+                name="ruangan"
+                value="Ruangan 1"
+                required
+              />
+              <label>Ruangan 1</label>
+              <input
+                type="radio"
+                id="ruangan2"
+                name="ruangan"
+                value="Ruangan 2"
+                required
+              />
+              <label>Ruangan 2</label>
+            </div>
+            <label>Mulai jam berapa ?</label>
+            <input type="datetime-local" name="mulaiJam" />
+            <label>Akhir jam berapa ?</label>
+            <input type="datetime-local" name="akhirJam" />
+            <label>Nomor Hp :</label>
+            <input
+              type="text"
+              id="nomorHp"
+              name="nomorHp"
+              placeholder="Nomor Hp"
+              required
+            /><br />
+            <button class="button-form">Send</button>
+          </form>
+        </fieldset>
+      </div>
     </main>
     <script src="./beranda.js"></script>
-</body>
+  </body>
 </html>

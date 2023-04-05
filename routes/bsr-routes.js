@@ -45,36 +45,13 @@ export async function loginUser(req, res) {
 export async function bookingUser(req, res) {
   const changeToken = jwt.verify(req.cookies.token, process.env.JWT_SECRET_KEY);
   const dataBooking = await client.query("SELECT * FROM booking");
-  let valid = false;
-
-  const a = new Date(req.body.mulaiJam).toLocaleString("id-ID",{day: "2-digit", month: "2-digit", year: "2-digit"})
-  const b = new Date(req.body.mulaiJam).toLocaleString("id-ID",{hour: "2-digit", minute: "2-digit"});
-  const y = new Date(req.body.akhirJam).toLocaleString("id-ID",{day: "2-digit", month: "2-digit", year: "2-digit"})
-  const z = new Date(req.body.akhirJam).toLocaleString("id-ID",{hour: "2-digit", minute: "2-digit"});
-
-  // const i = `${a} ${b}`;
-  // const j = `${y} ${z}`;
-  // console.log(new Date(req.body.mulaiJam).toString(), data.akhir_jam_berapa.toString());
-
-
-  // await client.query(
-  //   `INSERT INTO booking (nama_lengkap, berapa_orang, ruangan, mulai_jam_berapa, akhir_jam_berapa, nomor_hp, id_user) VALUES 
-  //     ('${req.body.namaLengkap}', 
-  //       ${req.body.berapaOrang},
-  //       '${req.body.ruangan}',
-  //       '${i}',
-  //       '${j}',
-  //       '${req.body.nomorHp}',
-  //       ${changeToken.id_user})
-  //   `
-  // );
-  // res.send("Pembookingan berhasil");
-
+  let valid = true;
 
   dataBooking.rows.forEach(async (data) => {
-    if (new Date(req.body.mulaiJam).toString() > data.akhir_jam_berapa.toString()) {
-      // console.log(new Date(req.body.mulaiJam).toString(), data.akhir_jam_berapa.toString());
-      valid = true;
+    if (new Date(req.body.mulaiJam) < new Date(data.akhir_jam_berapa)) {
+      valid = false;
+      res.status(401);
+      res.send("Pembookingan gagal");
     }
   });
 
@@ -91,8 +68,6 @@ export async function bookingUser(req, res) {
       `
     );
     res.send("Pembookingan berhasil");
-  } else {
-    res.send("Pembookingan gagal");
   }
 }
 
