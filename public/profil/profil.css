@@ -13,6 +13,7 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
 }
 
 .div-imgprofil img {
@@ -26,6 +27,7 @@ header {
 
 .div-listprofil {
   display: flex;
+  flex-wrap: wrap;
   gap: 50px;
   margin-right: 10px;
 }
@@ -58,6 +60,7 @@ header {
 
 .div-tampilprofil {
   display: flex;
+  flex-wrap: wrap;
   gap: 10px;
   margin-right: 50px;
 }
@@ -72,6 +75,7 @@ header {
 .div-tampilprofil .namaprofil {
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
 }
 
 .div-changeprofil form {

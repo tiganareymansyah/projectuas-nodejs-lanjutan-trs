@@ -18,6 +18,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
 }
 
 .div-login h1 {
@@ -59,6 +60,7 @@ body {
   justify-content: space-around;
   align-items: center;
   margin-top: 100px;
+  flex-wrap: wrap;
 }
 
 .div-form {

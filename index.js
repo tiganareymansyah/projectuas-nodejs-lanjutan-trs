@@ -33,6 +33,7 @@ app.use((req, res, next) => {
     req.path === "/api/login" ||
     req.path.includes("register") ||
     req.path.includes("admin") ||
+    req.path.includes("adm") ||
     req.path.endsWith(".css") ||
     req.path.endsWith(".jpg") ||
     req.path.endsWith(".png") ||

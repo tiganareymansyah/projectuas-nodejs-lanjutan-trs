@@ -18,6 +18,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
 }
 
 .div-adminberanda h1 {
@@ -58,6 +59,7 @@ body {
   margin-top: 70px;
   display: flex;
   flex-direction: column;
+  flex-wrap: wrap;
   gap: 20px;
 }
 
@@ -69,6 +71,7 @@ body {
 .div-tableuserdata {
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
 }
 
 .table-userdata {
@@ -88,6 +91,7 @@ td {
 .div-tablebooking {
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
 }
 
 .table-booking {

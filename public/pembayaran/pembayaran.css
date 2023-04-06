@@ -13,6 +13,7 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
 }
 
 .div-imgpembayaran img {
@@ -27,6 +28,7 @@ header {
 
 .div-listpembayaran {
   display: flex;
+  flex-wrap: wrap;
   gap: 50px;
   margin-right: 10px;
 }
@@ -52,6 +54,7 @@ header {
 .main-pembayaran {
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
   padding: 20px;
 }
 
@@ -106,6 +109,7 @@ header {
 .div-bank {
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
   align-items: center;
   gap: 40px;
 }
