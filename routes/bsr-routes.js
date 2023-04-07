@@ -174,3 +174,11 @@ export async function adminTampilBooking(req, res) {
   );
   res.send(adminTampilBooking.rows);
 }
+
+// // Route untuk file coba.html
+// export async function cobaTampil(req, res) {
+//   const tampilData = await client.query(
+//     `SELECT username, email, temtanglah, jenkel FROM user_data`
+//   );
+//   res.json(tampilData.rows[0]);
+// }

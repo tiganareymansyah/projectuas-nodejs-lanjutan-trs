@@ -20,6 +20,7 @@ import {
   postPembayaran,
   tampilData,
   updateAkun,
+  // cobaTampil,
 } from "./routes/bsr-routes.js";
 
 const app = express();
@@ -96,5 +97,8 @@ app.get("/api/logout", logoutAkun);
 app.post("/api/loginadmin", loginAdmin);
 app.get("/api/adminuserdata", adminTampilUSerData);
 app.get("/api/adminbooking", adminTampilBooking);
+
+// // Route untuk file coba.html
+// app.get("/api/tampil", cobaTampil);
 
 app.listen(3000, () => console.log("Server sedang berjalan..."));
