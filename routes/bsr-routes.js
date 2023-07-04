@@ -8,7 +8,7 @@ import { client } from "../postgresql.js";
 export async function me(req, res) {
   const user = jwt.verify(req.cookies.token, process.env.JWT_SECRET_KEY);
   const tampilEmailPp = await client.query(
-    `SELECT ud.email, bg.foto_profil FROM user_data ud, booking bg WHERE ud.id_user = bg.id_user`
+    `SELECT ud.email, bg.foto_profil FROM user_data ud, booking bg WHERE ud.id_user = ${user.id_user} AND bg.id_user = ${user.id_user}`
   );
   res.send(tampilEmailPp.rows[0]);
 }
